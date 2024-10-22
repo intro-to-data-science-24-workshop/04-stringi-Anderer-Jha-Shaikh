@@ -96,46 +96,74 @@ options(htmltools.dir.version = FALSE)
 
 ---
 #Key Features & Use Cases 
-**1. Working with temporal data from different locales**: use `stri_datetime_parse`to homogenize temporal data. 
---
+
+.pull-left[
+**1. Working with temporal data from different locales:** 
 <br>
-*Example*: You scraped flight schedules from different countries and want to homogenize the notation of time and date. 
---
+use `stri_datetime_parse`to homogenize temporal data.
+<br>
+*Example*: You scraped flight schedules from different countries and want to homogenize the notation of time and date.
+<br>
 
+<img src="images/dates.jpg" width="40%" />
+]
 
-**2. General Transforms**: use `stri_trans_general` to transliterate characters from one script to another script of your choosing. 
 --
+.pull-right[
+
+**2. General Transforms:** <br>
+use `stri_trans_general` to transliterate characters from one script to another script of your choosing.
 <br>
 *Example*: You might be working with data  from a foreign local and the special characters are not displaying well. You can use `stri_trans_general` to convert them to Latin-ASCII. 
---
-
-
-**3. Text Boundary Analysis**: To split text into lines/words/characters, count characters or locate particular text units (e.g. the 4th word of a sentence), use commands like `stri_count_boundares`, `stri_split_boundaries` or `stri_locate_boundaries`.
---
-<br>
-*Example*: To prepare text data for a bag of words analysis ➡️ use `stri_split_boundaries`to split the text into words.
---
-
-
-**4. Extracting & Replacing Substrings**: use `stri_sub`to extract and replace substrings.
---
-<br>
-*Example*: If you have a data set with telephone numbers and want to standardize them  or want to extract information like country or area code. It is also handy for anonymizing personal data.
+```{r}
+library("stringi")
+stri_trans_general("Dämliche Düsen lärmen prächtig", "latin-ascii")
+````
+]
 
 ---
 #Key Features & Use Cases continued
+.pull-left[
+<img src ="images/split.jpg" width="20%" />
+<br>
+**3. Text Boundary Analysis:**<br>
+To split text into lines/words/characters, count characters or locate particular text units (e.g. the 4th word of a sentence), use commands like `stri_count_boundares`, `stri_split_boundaries` or `stri_locate_boundaries`. 
+<br>
+*Example*: To prepare text data for a bag of words analysis ➡️ use `stri_split_boundaries`to split the text into words.
+]
 
-**5. Concatenating Strings**: to run concatenation-based operations, use `stri_join`, `stri_dup`, %s+%, or `stri_flatten`.
 --
+
+.pull-right[<img src ="images/replace.jpg" width="20%" />
+<br>
+**4. Extracting & Replacing Substrings:** <br>
+use `stri_sub`to extract and replace substrings.
+<br>
+*Example*: If you have a data set with telephone numbers and want to standardize them  or want to extract information like country or area code. It is also handy for anonymizing personal data.
+]
+
+
+---
+#Key Features & Use Cases continued
+.pull-left[
+
+<img src ="images/glue.jpg" width="20%" />
+<br>
+**5. Concatenating Strings:** <br>
+to run concatenation-based operations, use `stri_join`, `stri_dup`, %s+%, or `stri_flatten`.
 <br>
 *Example*: You might want to create a key for observations by concatenating multiple variables. It is also helpful for building URLs when scraping. 
+]
 
 --
-
-**6. Trimming**: to remove uneccessary white spaces, use `stri_trim`.
---
+.pull-right[
+<img src ="images/trim.jpg" width="20%" />
+<br>
+**6. Trimming:** <br>
+to remove uneccessary white spaces, use `stri_trim`.
 <br>
 *Example*: You've scraped text from the web and need to remove superfluous white spaces at the beginning and/or end of the strings. 
+]
 
 ---
 #Match Made in Heaven: Stringi & Regex
