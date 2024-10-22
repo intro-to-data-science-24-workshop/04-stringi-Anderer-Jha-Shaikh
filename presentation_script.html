@@ -44,21 +44,34 @@ class: center, middle, inverse, title-slide
 1. Text as Data in R
 --
 &lt;br&gt;
-2. The Role of String Processing in Political Science
+
+2. String Processing in the Political Sciences
 --
 &lt;br&gt;
+
 3. Introducing Stringi &amp; Friends
 --
 &lt;br&gt;
+
 4. Key Features &amp; Use Cases
 --
 &lt;br&gt;
+
 5. Match Made in Heaven: Stringi &amp; Regex
 --
 &lt;br&gt;
+
 6. Further Resources 
 
 ---
+#Text as Data in R
+
+---
+#String Processing in the Political Sciences
+
+---
+
+
 #Introducing `stringi` &amp; Friends
 ##String processing in the tidyverse
 - `stringi`: most comprehensive string processing package (250 functions)
@@ -95,13 +108,28 @@ class: center, middle, inverse, title-slide
 
 ---
 #Key Features &amp; Use Cases 
+**Working with temporal data from different locales**: use `stri_datetime_parse`to homogenize temporal data. 
+--
+&lt;br&gt;
+Example: You scraped flight schedules from different countries and want to homogenize the notation of time and date. 
+--
+&lt;br&gt;
 
+**General Transforms**: use `stri_trans_general` to transliterate characters from one script to another script of your choosing. 
+--
+&lt;br&gt;
+Example: You might be working with data  from a foreign local and the special characters are not displaying well. You can use `stri_trans_general` to convert them to Latin-ASCII. 
 
 
 ---
 #Match Made in Heaven: Stringi &amp; Regex
 
 
+---
+#Further Resources
+
+#Image Credits
+- [`stringi`logo](https://www.google.com/url?sa=i&amp;url=https%3A%2F%2Fstringi.gagolewski.com%2F&amp;psig=AOvVaw3_xTop87NlWBu_Ek9kc9A6&amp;ust=1729697796955000&amp;source=images&amp;cd=vfe&amp;opi=89978449&amp;ved=0CBEQjRxqFwoTCNDOmMmoookDFQAAAAAdAAAAABAE) 
 
 
 

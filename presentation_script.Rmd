@@ -29,25 +29,30 @@ options(htmltools.dir.version = FALSE)
 1. Text as Data in R
 --
 <br>
-2. The Role of String Processing in Political Science
+
+2. String Processing in the Political Sciences
 --
 <br>
+
 3. Introducing Stringi & Friends
 --
 <br>
+
 4. Key Features & Use Cases
 --
 <br>
+
 5. Match Made in Heaven: Stringi & Regex
 --
 <br>
+
 6. Further Resources 
 
 ---
 #Text as Data in R
 
 ---
-#The Role of String Processing in Political Sciences
+#String Processing in the Political Sciences
 
 ---
 
@@ -88,7 +93,19 @@ options(htmltools.dir.version = FALSE)
 
 ---
 #Key Features & Use Cases 
+**Working with temporal data from different locales**: use `stri_datetime_parse`to homogenize temporal data. 
+--
+<br>
+Example: You scraped flight schedules from different countries and want to homogenize the notation of time and date. 
+--
+<br>
 
+**General Transforms**: use `stri_trans_general` to transliterate characters from one script to another script of your choosing. 
+--
+<br>
+Example: You might be working with data  from a foreign local and the special characters are not displaying well. You can use `stri_trans_general` to convert them to Latin-ASCII. 
+
+**Text Boundary Analysis**
 
 
 ---
