@@ -47,6 +47,9 @@ options(htmltools.dir.version = FALSE)
 #Introducing `stringi` & Friends
 ##String processing in the tidyverse
 
+.pull-right[
+<img src = "images/stringi.png" width = "35%" />
+
 - `stringi`: most comprehensive string processing package (250 functions)
 --
 <br>
