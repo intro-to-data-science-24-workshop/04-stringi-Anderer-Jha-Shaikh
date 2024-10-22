@@ -1,0 +1,66 @@
+---
+title: "Advanced String Processing with Stringi"
+subtitle: "Live Workshop Session"
+author:
+  - Benedict Anderer
+  - Farhan Shaikh 
+institute: "**Hertie School of Governance, Berlin**"
+date: "2024/10/28 (updated: `r Sys.Date()`)"
+output:
+  xaringan::moon_reader:
+    includes:
+      after_body: hertie_logo.html
+    css: [default, metropolis, metropolis-fonts]
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      ratio: 16:9
+      hash: true
+---
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+```
+
+# Outline
+1. Text as Data in R
+--
+<br>
+2. The Role of String Processing in Political Science
+--
+<br>
+3. Stringi & Friends
+--
+<br>
+4. Get to Know Stringi
+--
+<br>
+5. Match Made in Heaven: Stringi & Regex
+--
+<br>
+6. Stringi: Key Features & Use Cases
+--
+<br>
+7. Further Resources 
+
+---
+#Slide with Bullets
+
+- Bullet 1
+- Bullet 2
+- Bullet 3
+
+## Slide with R Output
+
+```{r cars, echo = TRUE}
+summary(cars)
+```
+
+## Slide with Plot
+
+```{r pressure}
+plot(pressure)
+```
+
