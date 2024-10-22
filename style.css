@@ -1,0 +1,6 @@
+.logo-right {
+  position: absolute;
+  top: 10px; /* Adjust this to move the logo down or up */
+  right: 10px; /* Adjust this to move the logo left or right */
+  width: 10%; /* Adjust the size of the logo */
+}
