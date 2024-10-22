@@ -1,15 +1,17 @@
 ---
-title: "Presentation_slides_stringi"
-author: "Benedict Anderer"
+title: "Advanced String Manipulation with Stringi"
+author: "Benedict Anderer, Farhan Shaikh"
 date: "`r Sys.Date()`"
-output: powerpoint_presentation
+output:
+  xaringan::moon_reader:
+    css: [default, hygge, rutgers-fonts]
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
-## R Markdown
+## Overview
 
 This is an R Markdown presentation. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
 
