@@ -65,6 +65,20 @@ class: center, middle, inverse, title-slide
 
 ---
 #Text as Data in R
+##Significance of text data in the context of Data Science
+- Ever heard of the term, Natural Language Processing or NLP?
+--
+  - To put it simply, NLP is a field concerned with extracting insights based on interactions between computer and human interactions.
+  - Textual analysis is at the heart of such an analysis. But most of the text data is unstructured and not so analysis friendly.
+  - But ultimately text is data! Stringology (Crochemore and Rytter 2003) deals with algorithms and data structures for character string processing (Jurafsky and Martin 2008; Szpankowski 2001)
+  - Most statistical computing ecosystems provide only a basic set of text operations. In R, however, tools such as stringi and stringr provide researchers and analysts with the ability to efficiently manipulate, clean, and analyze text data.
+  - These tools help drive a wide variety of applications. E.g: Extracting specific information from text, such as named entities (persons, locations), dates, and relations between entities.
+
+- Example of text data in R:
+--
+  -text_as_vector&lt;- c("NLP is a subfield of artificial intelligence", "Text data is crucial for analysis.")
+  -text_with_special_characters&lt;-"Check out #RStats and #DataScience!"
+  -text_with_uneven_spaces&lt;-"All code chunk   outputs  presented in this paper   were  obtained in   R 4.1.2." 
 
 ---
 #String Processing in the Political Sciences
@@ -74,7 +88,14 @@ class: center, middle, inverse, title-slide
 
 #Introducing `stringi` &amp; Friends
 ##String processing in the tidyverse
-- `stringi`: most comprehensive string processing package (250 functions)
+&lt;div class="logo-right"&gt;
+  &lt;img src="images/stringi.png" alt="Stringi Logo" /&gt;
+&lt;/div&gt;
+
+- unlike `base`, `stringi`follows a `tidyverse`-syntax
+--
+
+- most comprehensive string processing package (250 functions)
 --
 
   - commands begin with `stri`
@@ -86,9 +107,7 @@ class: center, middle, inverse, title-slide
   - more accessible, but "only" 49 functions
   - commands begin with `str`
 
-&lt;div class="logo-right"&gt;
-  &lt;img src="images/stringi.png" alt="Stringi Logo" /&gt;
-&lt;/div&gt;
+
 
 ---
 #Introducing `stringi` &amp; Friends
