@@ -31,27 +31,36 @@ options(htmltools.dir.version = FALSE)
 2. The Role of String Processing in Political Science
 --
 <br>
-3. Stringi & Friends
+3. Introducing Stringi & Friends
 --
 <br>
-4. Get to Know Stringi
---
-<br>
-5. Match Made in Heaven: Stringi & Regex
+4. Match Made in Heaven: Stringi & Regex
 --
 <br>
 6. Stringi: Key Features & Use Cases
 --
 <br>
-7. Further Resources 
+6. Further Resources 
 
 ---
-#Slide with Bullets
+#Introducing Stringi & Friends
+##String processing in the tidyverse
 
-- Bullet 1
-- Bullet 2
+- `stringi`: most comprehensive string processing package (250 functions)
+--
+<br>
+  - commands begin with `stri`
+  - less accessible, but can handle advanced tasks
+- `stringr`: built on top of `stringi`
+--
+<br>
+  - more accessible, but "only" 49 functions
+  - commands begin with `str`
+
+
 - Bullet 3
 
+---
 ## Slide with R Output
 
 ```{r cars, echo = TRUE}
