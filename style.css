@@ -4,3 +4,17 @@
   right: 10px; /* Adjust this to move the logo left or right */
   width: 10%; /* Adjust the size of the logo */
 }
+
+
+body {
+  line-height: 1.6; /* Global line-height for all text */
+}
+
+h1, h2, h3 {
+  margin-bottom: 20px; /* Add space after headers */
+}
+
+li {
+  line-height: 1.5; /* Adjust line height for list items */
+  margin-bottom: 10px; /* Add space between list items */
+}
