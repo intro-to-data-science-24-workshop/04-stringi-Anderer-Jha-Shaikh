@@ -240,8 +240,65 @@ to remove uneccessary white spaces, use `stri_trim`.
 ---
 #Match Made in Heaven: Stringi &amp; Regex
 
+##Portability and Versatility
+
+- As Stringi is an extension of Stringr with Unicode standards, it uses the same regex syntax for pattern matching, subsetting, and any other textual analysis. 
+
+--
+- Regex allows for a variety of operations: subsetting, cleaning, pattern matching, text substitution and replacement, case conversion
+
+--
+
+##Major Functions:
+
+--
+- stri_detect_regex() – Detecting Patterns in Text
+- stri_extract_all_regex() – Extracting Matching Substrings
+- stri_replace_all_regex() – Replacing Patterns
+- stri_count_regex() – Counting Matches in Text
+- stri_split_regex() – Splitting Text by Pattern
+- stri_match_all_regex() – Extracting Groups of Matches
+- stri_locate_all_regex() – Locating Pattern Matches
+--
 
 ---
+
+#Match Made in Heaven: Stringi & Regex
+
+##Case Study
+
+- speeches_Labour_Party<- c(
+  "The economy is growing, but unemployment remains a challenge. We must improve jobs.",
+  "Our education system needs reform. Healthcare must be accessible to everyone.",
+  "Job creation is our top priority to strengthen the economy. We will invest in education.",
+  "The unemployment rate is decreasing, but healthcare services are underfunded."
+)
+
+#Steps to Analyse these statements
+
+- Defining regex terms:
+  - economic_terms <- "\\beconomy\\b|\\bjobs\\b|\\bunemployment\\b|\\bjob creation\\b"
+  - social_terms <- "\\bhealthcare\\b|\\beducation\\b|\\breform\\b"
+
+- Searching for Mentions in the speeches
+  - economic_mentions <- stri_detect_regex(speeches, economic_terms)
+  - social_mentions <- stri_detect_regex(speeches, social_terms)
+
+---
+
+#Match Made in Heaven: Stringi & Regex
+
+- Count the number of mentions
+  - economic_count <- sum(economic_mentions)
+  - social_count <- sum(social_mentions)
+
+- Count and print the occurrences of terms in each speech
+  - economic_count_per_speech<-stri_count_regex(speeches, economic_terms)
+  - social_count_per_speech<-stri_count_regex(speeches, social_terms)
+  - data.frame(Speech = 1:length(speeches), Economic_Count = economic_count_per_speech, Social_Count = social_count_per_speech)
+
+---
+      
 #Further Resources
 If you're interested in learning more about `stringi`, feel free to check out the following resources: 
 
