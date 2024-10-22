@@ -20,6 +20,7 @@ output:
       hash: true
 ---
 
+
 ```{r setup, include=FALSE}
 options(htmltools.dir.version = FALSE)
 ```
@@ -34,16 +35,16 @@ options(htmltools.dir.version = FALSE)
 3. Introducing Stringi & Friends
 --
 <br>
-4. Match Made in Heaven: Stringi & Regex
+4. Key Features & Use Cases
 --
 <br>
-6. Stringi: Key Features & Use Cases
+5. Match Made in Heaven: Stringi & Regex
 --
 <br>
 6. Further Resources 
 
 ---
-#Introducing Stringi & Friends
+#Introducing `stringi` & Friends
 ##String processing in the tidyverse
 
 - `stringi`: most comprehensive string processing package (250 functions)
@@ -51,25 +52,23 @@ options(htmltools.dir.version = FALSE)
 <br>
   - commands begin with `stri`
   - less accessible, but can handle advanced tasks
-- `stringr`: built on top of `stringi`
+  - relies on ICU ➡️ can handle locale specific conditions (language, time)
+- `stringr`: based on `stringi`
 --
 <br>
   - more accessible, but "only" 49 functions
   - commands begin with `str`
 
+---
+#Introducing Stringi & Friends
+##Why you should use `stringi`
 
-- Bullet 3
+#Key Features & Use Cases
 
 ---
-## Slide with R Output
+#Match Made in Heaven: Stringi & Regex
 
-```{r cars, echo = TRUE}
-summary(cars)
-```
 
-## Slide with Plot
 
-```{r pressure}
-plot(pressure)
-```
+
 
