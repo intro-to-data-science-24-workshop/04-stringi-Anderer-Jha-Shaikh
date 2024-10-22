@@ -80,6 +80,14 @@ class: center, middle, inverse, title-slide
   -text_with_special_characters&lt;-"Check out #RStats and #DataScience!"
   -text_with_uneven_spaces&lt;-"All code chunk   outputs  presented in this paper   were  obtained in   R 4.1.2." 
 
+##Common Forms of Textual Data Analysis:
+
+- Data cleaning and preprocessing
+
+- Pattern matching
+
+- Multilingual text handling
+      
 ---
 #String Processing in the Political Sciences
 - In political science, working with large-scale textual data has become increasingly important.
@@ -99,6 +107,18 @@ class: center, middle, inverse, title-slide
   - Here, you would want to separate the scripts to process the data
 ---
 
+#String Processing in the Political Sciences
+
+By analyzing data from social media (e.g., Twitter, Facebook), news outlets, and online forums, researchers can gain real-time insights into voter sentiment, election campaigns, or the popularity of government actions.
+
+- Example
+  - senator_speech <- ""As we approach the next election, it is critical to recognize the progress we have made, but we must also acknowledge the severe shortcomings in our healthcare and education systems.I am optimistic that with the right leadership, we can build a brighter future.
+  - positive_words <- c("bright", "great", "excellent", "good")
+  - positive_pattern <- paste(positive_words, collapse = "|")
+  - positive_mentions <- stri_extract_all_regex(speech, positive_pattern)
+
+---      
+      
 #Introducing `stringi` &amp; Friends
 ##String processing in the tidyverse
 &lt;div class="logo-right"&gt;
