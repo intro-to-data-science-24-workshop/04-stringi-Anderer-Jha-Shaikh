@@ -82,9 +82,22 @@ class: center, middle, inverse, title-slide
 
 ---
 #String Processing in the Political Sciences
+- In political science, working with large-scale textual data has become increasingly important.
 
+  - Political speeches, manifestos, and debates
+  - Social media and news articles
+  - Surveys and interviews
+
+- Regular expression is a powerful tool that makes it easier to search for specific terms, party names, or policy mentions in large corpus.
+
+  - text <- c("The 2020 election results are being contested mainly on the issue of growing pollution and water crisis in the cities.")
+  -Here, the terms like air pollution and water crisis can be of interest to the researchers studying agenda-setting process.
+  
+- Political science research often involves text in multiple languages. Libraries in R can handle different character sets, ensuring correct processing of text in non-Latin scripts.
+
+  - multi_text <- "This is in English. 这是中文."
+  - Here, you would want to separate the scripts to process the data
 ---
-
 
 #Introducing `stringi` &amp; Friends
 ##String processing in the tidyverse
