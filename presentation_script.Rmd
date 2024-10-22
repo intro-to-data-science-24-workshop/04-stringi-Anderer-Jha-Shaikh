@@ -61,9 +61,9 @@ options(htmltools.dir.version = FALSE)
 
 - Example of text data in R:
 --
-  -text_as_vector<- c("NLP is a subfield of artificial intelligence", "Text data is crucial for analysis.")
-  -text_with_special_characters<-"Check out #RStats and #DataScience!"
-  -text_with_uneven_spaces<-"All code chunk   outputs  presented in this paper   were  obtained in   R 4.1.2." 
+  - text_as_vector<- c("NLP is a subfield of artificial intelligence", "Text data is crucial for analysis.")
+  - text_with_special_characters<-"Check out #RStats and #DataScience!"
+  - text_with_uneven_spaces<-"All code chunk   outputs  presented in this paper   were  obtained in   R 4.1.2." 
 
 ---
 #String Processing in the Political Sciences
