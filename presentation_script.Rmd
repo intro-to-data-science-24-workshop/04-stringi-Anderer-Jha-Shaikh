@@ -61,18 +61,22 @@ options(htmltools.dir.version = FALSE)
 ##String processing in the tidyverse
 - `stringi`: most comprehensive string processing package (250 functions)
 --
-<br>
+
   - commands begin with `stri`
   - less accessible, but can handle advanced tasks
   - relies on International Components for Unicode (ICU) 
 - `stringr`: based on `stringi`
 --
-<br>
+
   - more accessible, but "only" 49 functions
   - commands begin with `str`
 
+<div class="logo-right">
+  <img src="images/stringi.png" alt="Stringi Logo" />
+</div>
+
 ---
-#Introducing Stringi & Friends
+#Introducing `stringi` & Friends
 ##Why you should use `stringi`
 <div class="logo-right">
   <img src="images/stringi.png" alt="Stringi Logo" />
@@ -80,33 +84,61 @@ options(htmltools.dir.version = FALSE)
 
 - `stringi` supports [Unicode](https://home.unicode.org) ➡️ can process text & date data in different locales which is important for working data with from different countries. E.g.:
 --
-<br>
+
   - "ä" is interpreted as "ae"
   - Japanese date notation can be parsed in German R 
 --
-<br>
+
 - the most versatile string-processing package
 --
-<br>
 
   - if you are struggling to achieve your goals with `base`or `stringr`, take a look at `stringi`resources (e.g. [this](https://www.rdocumentation.org/packages/stringi/versions/1.8.4) or [this](https://stringi.gagolewski.com/index.html)) 
 
 ---
 #Key Features & Use Cases 
-**Working with temporal data from different locales**: use `stri_datetime_parse`to homogenize temporal data. 
+**1. Working with temporal data from different locales**: use `stri_datetime_parse`to homogenize temporal data. 
 --
-<br>
-Example: You scraped flight schedules from different countries and want to homogenize the notation of time and date. 
+
+
+*Example*: You scraped flight schedules from different countries and want to homogenize the notation of time and date. 
 --
-<br>
 
-**General Transforms**: use `stri_trans_general` to transliterate characters from one script to another script of your choosing. 
+
+**2. General Transforms**: use `stri_trans_general` to transliterate characters from one script to another script of your choosing. 
 --
-<br>
-Example: You might be working with data  from a foreign local and the special characters are not displaying well. You can use `stri_trans_general` to convert them to Latin-ASCII. 
 
-**Text Boundary Analysis**
 
+*Example*: You might be working with data  from a foreign local and the special characters are not displaying well. You can use `stri_trans_general` to convert them to Latin-ASCII. 
+--
+
+
+**3. Text Boundary Analysis**: To split text into lines/words/characters, count characters or locate particular text units (e.g. the 4th word of a sentence), use commands like `stri_count_boundares`, `stri_split_boundaries` or `stri_locate_boundaries`.
+--
+
+
+*Example*: To prepare text data for a bag of words analysis ➡️ use `stri_split_boundaries`to split the text into words.
+--
+
+
+**4. Extracting & Replacing Substrings**: use `stri_sub`to extract and replace substrings.
+
+
+*Example*: If you have a data set with telephone numbers and want to standardize them  or want to extract information like country or area code. It is also handy for anonymizing personal data.
+
+---
+#Key Features & Use Cases continued
+
+**5. Concatenating Strings**: to run concatenation-based operations, use `stri_join`, `stri_dup`, %s+%, or `stri_flatten`.
+
+
+*Example*: You might want to create a key for observations by concatenating multiple variables. It is also helpful for building URLs when scraping. 
+
+--
+
+**6. Trimming**: to remove uneccessary white spaces, use `stri_trim`.
+
+
+*Example*: You've scraped text from the web and need to remove superfluous white spaces at the beginning and/or end of the strings. 
 
 ---
 #Match Made in Heaven: Stringi & Regex
@@ -114,7 +146,16 @@ Example: You might be working with data  from a foreign local and the special ch
 
 ---
 #Further Resources
+If you're interested in learning more about `stringi`, feel free to check out the following resources: 
 
+- [Overview of key functions 1](https://www.rdocumentation.org/packages/stringi/versions/1.8.4/topics/about_stringi)
+- [Overview of key functions 2](https://stringi.gagolewski.com/index.html#)
+- [CRAN entry](https://cran.r-project.org/web/packages/stringi/index.html)
+- [Paper by the package's author](https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=https://www.jstatsoft.org/article/view/v103i02/4324&ved=2ahUKEwjznajP1qKJAxUN9AIHHR-AH0oQFnoECB4QAQ&usg=AOvVaw2ysoUKJIt6sqvLBgWUotez)
+- [Documentation](https://www.rdocumentation.org/packages/stringi/versions/1.8.4)
+- [`stringi`Github repo](https://github.com/gagolews/stringi)
+
+---
 #Image Credits
 - [`stringi`logo](https://www.google.com/url?sa=i&url=https%3A%2F%2Fstringi.gagolewski.com%2F&psig=AOvVaw3_xTop87NlWBu_Ek9kc9A6&ust=1729697796955000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCNDOmMmoookDFQAAAAAdAAAAABAE) 
 
