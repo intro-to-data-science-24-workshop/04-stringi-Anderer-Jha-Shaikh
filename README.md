@@ -19,11 +19,11 @@ The contents can be accessed here:
 The material in this repository is made available under the [MIT license](http://opensource.org/licenses/mit-license.php). 
 
 ## Statement of Contributions
-**Benedict Anderer** prepared part of the slides (Introducing `stringi`& Friends; Key Features & Use Cases; Further Resources), made the recording and maintained the Github repository. 
+[**Benedict Anderer**](https://github.com/benrodion) prepared part of the slides (Introducing `stringi`& Friends; Key Features & Use Cases; Further Resources), made the recording and maintained the Github repository. 
 
-**Farhan Shaikh** prepared part of the slides (Text as Data; String Processing in the Political Sciences; Match Made in Heaven: `stringi`& Regex) and contributed to the Github repository. 
+[**Farhan Shaikh**](https://github.com/farhanshaikh199704) prepared part of the slides (Text as Data; String Processing in the Political Sciences; Match Made in Heaven: `stringi`& Regex) and contributed to the Github repository. 
 
-**Saurav Jah** prepared the practice material as well as the solutions. 
+[**Saurav Jah**](https://github.com/Saurav1729-create) prepared the practice material as well as the solutions. 
 
 
 
