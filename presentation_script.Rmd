@@ -51,23 +51,39 @@ options(htmltools.dir.version = FALSE)
 ---
 #Text as Data in R
 ##Significance of text data in the context of Data Science
+
+.pull-left[
 - Ever heard of the term, Natural Language Processing or NLP?
+  - at the core: textual analysis
+  - issue: most text data, especially when scraped from internet, is **messy**.
+<img src="images/mess.gif" width="80%" />
+]
+
 --
-  - To put it simply, NLP is a field concerned with extracting insights based on interactions between computer and human interactions.
-  - Textual analysis is at the heart of such an analysis. But most of the text data is unstructured and not so analysis friendly.
-  - But ultimately text is data! Stringology [Crochemore and Rytter 2003](https://www.sciencedirect.com/science/article/pii/S030439750200590X) deals with algorithms and data structures for character string processing [Jurafsky and Martin 2008; Szpankowski 2001](https://www.researchgate.net/publication/200111340_Speech_and_Language_Processing_An_Introduction_to_Natural_Language_Processing_Computational_Linguistics_and_Speech_Recognition)
-  - Most statistical computing ecosystems provide only a basic set of text operations. In R, however, tools such as `stringi` and `stringr` provide researchers and analysts with the ability to efficiently manipulate, clean, and analyze text data.
-  - These tools help drive a wide variety of applications. E.g: Extracting specific information from text, such as named entities (persons, locations), dates, and relations between entities.
+.pull-right[
+- But ultimately text is data and Stringology is the science of dealing with it (cf. [Crochemore and Rytter 2003](https://www.sciencedirect.com/science/article/pii/S030439750200590X), [Jurafsky and Martin 2008; Szpankowski 2001](https://www.researchgate.net/publication/200111340_Speech_and_Language_Processing_An_Introduction_to_Natural_Language_Processing_Computational_Linguistics_and_Speech_Recognition))
+- Dedicated tools in R for effectively manipulating, cleaning and analyzing textual data: `stringi` and `stringr` 
+]
+--
+<div class="logo-right">
+  <img src="images/stringi.png" alt="Stringi Logo" />
+</div>
+<div class="logo-left">
+  <img src="images/stringr.png" alt="Stringr Logo" />
+</div>
 
 ---
 
 - Example of text data in R:
 --
-  - text_as_vector<- c("NLP is a subfield of artificial intelligence", "Text data is crucial for analysis.")
-  - text_with_special_characters<-"Check out #RStats and #DataScience!"
-  - text_with_uneven_spaces<-"All code chunk   outputs  presented in this paper   were  obtained in   R 4.1.2." 
+```{r}
+text_as_vector<- c("NLP is a subfield of artificial intelligence", "Text data is crucial for analysis.")
+text_with_special_characters<-"Check out #RStats and #DataScience! Ämäzîng!"
+text_with_uneven_spaces<-"All code chunk   outputs  presented in this paper   were  obtained in   R 4.1.2." 
 
-##Common Forms of Textual Data Analysis:
+```
+
+###Common Elements of Textual Data Analysis:
 
 - Data cleaning and preprocessing
 
@@ -78,36 +94,23 @@ options(htmltools.dir.version = FALSE)
 ---
 
 #String Processing in the Political Sciences
-- In political science, working with large-scale textual data has become increasingly important.
+.pull-left[
+In the political sciences, we study textual data from:
+- Political speeches, manifestos, and debates
+- Social media and news articles
+- Surveys and interviews
 
-  - Political speeches, manifestos, and debates
-  - Social media and news articles
-  - Surveys and interviews
+A growing body of research in comparative politics make use of text mining and regular expressions:
+- [The Manifesto Project Database](https://manifesto-project.wzb.eu) studies ideological shifts in party manifestos
+- [Eckhard et al. (2021)](https://www.polver.uni-konstanz.de/eckhard/research/current-research-projects/text-as-data-the-evolution-of-the-un-security-council-debates-1995-2017/) studied the evolution of the UN Security Council debates based on all speeches from 1995-2017
+- [Soroka (2012)](https://psycnet.apa.org/record/2012-10832-011) analyzed the issue framing and tone in the media towards political candidates during elections across countries 
+]
 
-- A growing body of research in comparative politics make use of text mining and regular expressions:
+.pull-right[
+<img src="images/neuland.gif" width="120%" />
+]
+
       
-  - Volkens et al. (2013), in their work on the Manifesto Project Database, provide a rich collection of political party manifestos from over 50 countries. 
-      - Researchers analyze the frequency and sentiment of keywords or phrases related to specific policies (e.g., "welfare," "tax cuts," "immigration") in these manifestos to measure ideological shifts.
-      
-  - Hawkins et al. (2018) examined populist rhetoric in the speeches of political leaders in countries like the United States, Venezuela, and Hungary.
-      - Textual analysis involved detecting populist phrases, counting occurrences, and comparing populist rhetoric across leaders and countries.
-      
-  - Soroka (2012) conducted a comparative study of media coverage of elections in the United States, United Kingdom, and Canada.
-      - Media articles are analyzed for issue framing (e.g., economy, healthcare, immigration) and tone (positive/negative) toward political candidates.
-      
-
----
-
-#String Processing in the Political Sciences
-
-By analyzing data from social media (e.g., Twitter, Facebook), news outlets, and online forums, researchers can gain real-time insights into voter sentiment, election campaigns, or the popularity of government actions.
-
-- Example
-
-  - senator_speech <- ""As we approach the next election, it is critical to recognize the progress we have made, but we must also acknowledge the severe shortcomings in our healthcare and education systems.I am optimistic that with the right leadership, we can build a brighter future.
-  - positive_words <- c("bright", "great", "excellent", "good")
-  - positive_pattern <- paste(positive_words, collapse = "|")
-  - positive_mentions <- stri_extract_all_regex(speech, positive_pattern)
 
 ---
 
@@ -271,6 +274,9 @@ If you're interested in learning more about `stringi`, feel free to check out th
 ---
 #Image Credits
 - [`stringi`logo](https://www.google.com/url?sa=i&url=https%3A%2F%2Fstringi.gagolewski.com%2F&psig=AOvVaw3_xTop87NlWBu_Ek9kc9A6&ust=1729697796955000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCNDOmMmoookDFQAAAAAdAAAAABAE) 
+- [`stringr`logo](https://www.google.com/url?sa=i&url=https%3A%2F%2Fstringr.tidyverse.org%2F&psig=AOvVaw1zAo-FsdcgSe-wNVp_QlHz&ust=1729795760171000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCKDatcKVpYkDFQAAAAAdAAAAABAE)
+- [mess-GIF](https://www.google.com/url?sa=i&url=https%3A%2F%2Ftenor.com%2Fsearch%2Fhuge-mess-gifs&psig=AOvVaw1IetlpzB_oQU8hF8sCjEkT&ust=1729795796396000&source=images&cd=vfe&opi=89978449&ved=0CBMQjRxqFwoTCLj6ztGVpYkDFQAAAAAdAAAAABAj)
+- [Merkel-GIF](https://www.google.com/url?sa=i&url=https%3A%2F%2Ftenor.com%2Fsearch%2Fangela-merkel-gifs&psig=AOvVaw2tejlmj8ycQsAXH5uiWpAd&ust=1729797841025000&source=images&cd=vfe&opi=89978449&ved=0CBMQjRxqFwoTCJD4rKGdpYkDFQAAAAAdAAAAABAj)
 
 
 
