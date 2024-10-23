@@ -1,10 +1,16 @@
 .logo-right {
   position: absolute;
-  top: 500px; /* Adjust this to move the logo down or up */
-  right: 10px; /* Adjust this to move the logo left or right */
+  top: 500px; /* Adjust this to align vertically with the left logo */
+  right: 10px; /* This keeps the right logo on the right */
   width: 10%; /* Adjust the size of the logo */
 }
 
+.logo-left {
+  position: absolute;
+  top: 500px; /* Same top value to align both logos horizontally */
+  left: 10px; /* Adjust this to move the second logo */
+  width: 10%; /* Adjust the size of the second logo */
+}
 
 body {
   line-height: 1.6; /* Global line-height for all text */
