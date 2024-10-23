@@ -31,7 +31,7 @@ class: center, middle, inverse, title-slide
 ### <strong>Hertie School of Governance, Berlin</strong>
 ]
 .date[
-### 2024/10/28 (updated: 2024-10-22)
+### 2024/10/28 (updated: 2024-10-23)
 ]
 
 ---
@@ -74,14 +74,14 @@ class: center, middle, inverse, title-slide
   - Most statistical computing ecosystems provide only a basic set of text operations. In R, however, tools such as stringi and stringr provide researchers and analysts with the ability to efficiently manipulate, clean, and analyze text data.
   - These tools help drive a wide variety of applications. E.g: Extracting specific information from text, such as named entities (persons, locations), dates, and relations between entities.
 
+---
+
 - Example of text data in R:
 --
   - text_as_vector&lt;- c("NLP is a subfield of artificial intelligence", "Text data is crucial for analysis.")
   - text_with_special_characters&lt;-"Check out #RStats and #DataScience!"
   - text_with_uneven_spaces&lt;-"All code chunk   outputs  presented in this paper   were  obtained in   R 4.1.2." 
 
----
-      
 ##Common Forms of Textual Data Analysis:
 
 - Data cleaning and preprocessing
@@ -89,9 +89,9 @@ class: center, middle, inverse, title-slide
 - Pattern matching
 
 - Multilingual text handling
-      
+
 ---
-      
+
 #String Processing in the Political Sciences
 - In political science, working with large-scale textual data has become increasingly important.
 
@@ -101,13 +101,14 @@ class: center, middle, inverse, title-slide
 
 - Regular expression is a powerful tool that makes it easier to search for specific terms, party names, or policy mentions in large corpus.
 
-  - text <- c("The 2020 election results are being contested mainly on the issue of growing pollution and water crisis in the cities.")
-  - Here, the terms like air pollution and water crisis can be of interest to the researchers studying agenda-setting process.
-  
+  - text &lt;- c("The 2020 election results are being contested mainly on the issue of growing pollution and water crisis in the cities.")
+  -Here, the terms like air pollution and water crisis can be of interest to the researchers studying agenda-setting process.
+
 - Political science research often involves text in multiple languages. Libraries in R can handle different character sets, ensuring correct processing of text in non-Latin scripts.
 
-  - multi_text <- "This is in English. 这是中文."
+  - multi_text &lt;- "This is in English. 这是中文."
   - Here, you would want to separate the scripts to process the data
+
 ---
 
 #String Processing in the Political Sciences
@@ -115,13 +116,14 @@ class: center, middle, inverse, title-slide
 By analyzing data from social media (e.g., Twitter, Facebook), news outlets, and online forums, researchers can gain real-time insights into voter sentiment, election campaigns, or the popularity of government actions.
 
 - Example
-  - senator_speech <- ""As we approach the next election, it is critical to recognize the progress we have made, but we must also acknowledge the severe shortcomings in our healthcare and education systems.I am optimistic that with the right leadership, we can build a brighter future.
-  - positive_words <- c("bright", "great", "excellent", "good")
-  - positive_pattern <- paste(positive_words, collapse = "|")
-  - positive_mentions <- stri_extract_all_regex(speech, positive_pattern)
 
----      
-      
+  - senator_speech &lt;- ""As we approach the next election, it is critical to recognize the progress we have made, but we must also acknowledge the severe shortcomings in our healthcare and education systems.I am optimistic that with the right leadership, we can build a brighter future.
+  - positive_words &lt;- c("bright", "great", "excellent", "good")
+  - positive_pattern &lt;- paste(positive_words, collapse = "|")
+  - positive_mentions &lt;- stri_extract_all_regex(speech, positive_pattern)
+
+---
+
 #Introducing `stringi` &amp; Friends
 ##String processing in the tidyverse
 &lt;div class="logo-right"&gt;
@@ -137,6 +139,8 @@ By analyzing data from social media (e.g., Twitter, Facebook), news outlets, and
   - commands begin with `stri`
   - less accessible, but can handle advanced tasks
   - relies on International Components for Unicode (ICU) 
+--
+&lt;br&gt;
 - `stringr`: based on `stringi`
 --
 
@@ -245,7 +249,7 @@ to remove uneccessary white spaces, use `stri_trim`.
 
 ##Portability and Versatility
 
-- As Stringi is an extension of Stringr with Unicode standards, it uses the same regex syntax for pattern matching, subsetting, and any other textual analysis. 
+- As `stringi` is an extension of `stringr` with Unicode standards, it uses the same Regex syntax for pattern matching, subsetting, and any other textual analysis. 
 
 --
 - Regex allows for a variety of operations: subsetting, cleaning, pattern matching, text substitution and replacement, case conversion
@@ -253,55 +257,22 @@ to remove uneccessary white spaces, use `stri_trim`.
 --
 
 ##Major Functions:
+.pull-left[
+- `stri_detect_regex()` – Detecting Patterns in Text
+- `stri_extract_all_regex()` – Extracting Matching Substrings
+- `stri_replace_all_regex()` – Replacing Patterns
 
+]
 --
-- stri_detect_regex() – Detecting Patterns in Text
-- stri_extract_all_regex() – Extracting Matching Substrings
-- stri_replace_all_regex() – Replacing Patterns
-- stri_count_regex() – Counting Matches in Text
-- stri_split_regex() – Splitting Text by Pattern
-- stri_match_all_regex() – Extracting Groups of Matches
-- stri_locate_all_regex() – Locating Pattern Matches
---
+.pull-right[
+- `stri_count_regex()` – Counting Matches in Text
+- `stri_split_regex()` – Splitting Text by Pattern
+- `stri_match_all_regex() `– Extracting Groups of Matches
+- `stri_locate_all_regex()` – Locating Pattern Matches
+]
 
 ---
 
-#Match Made in Heaven: Stringi & Regex
-
-##Case Study
-
-- speeches_Labour_Party<- c(
-  "The economy is growing, but unemployment remains a challenge. We must improve jobs.",
-  "Our education system needs reform. Healthcare must be accessible to everyone.",
-  "Job creation is our top priority to strengthen the economy. We will invest in education.",
-  "The unemployment rate is decreasing, but healthcare services are underfunded."
-)
-
-#Steps to Analyse these statements
-
-- Defining regex terms:
-  - economic_terms <- "\\beconomy\\b|\\bjobs\\b|\\bunemployment\\b|\\bjob creation\\b"
-  - social_terms <- "\\bhealthcare\\b|\\beducation\\b|\\breform\\b"
-
-- Searching for Mentions in the speeches
-  - economic_mentions <- stri_detect_regex(speeches, economic_terms)
-  - social_mentions <- stri_detect_regex(speeches, social_terms)
-
----
-
-#Match Made in Heaven: Stringi & Regex
-
-- Count the number of mentions
-  - economic_count <- sum(economic_mentions)
-  - social_count <- sum(social_mentions)
-
-- Count and print the occurrences of terms in each speech
-  - economic_count_per_speech<-stri_count_regex(speeches, economic_terms)
-  - social_count_per_speech<-stri_count_regex(speeches, social_terms)
-  - data.frame(Speech = 1:length(speeches), Economic_Count = economic_count_per_speech, Social_Count = social_count_per_speech)
-
----
-      
 #Further Resources
 If you're interested in learning more about `stringi`, feel free to check out the following resources: 
 
