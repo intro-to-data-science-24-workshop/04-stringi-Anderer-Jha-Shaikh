@@ -126,6 +126,9 @@ By analyzing data from social media (e.g., Twitter, Facebook), news outlets, and
   - relies on International Components for Unicode (ICU) 
 --
 <br>
+<div class="logo-left">
+  <img src="images/stringr.png" alt="Stringr Logo" />
+</div>
 - `stringr`: based on `stringi`
 --
 
