@@ -4,6 +4,7 @@ subtitle: "Live Workshop Session"
 author:
   - Benedict Anderer
   - Farhan Shaikh 
+  - Saurav Jah
 institute: "**Hertie School of Governance, Berlin**"
 date: "2024/10/28 (updated: `r Sys.Date()`)"
 output:
