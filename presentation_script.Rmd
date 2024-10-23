@@ -1,5 +1,5 @@
 ---
-title: "Advanced String Processing with Stringi"
+title: "Advanced String Processing with `stringi`"
 subtitle: "Live Workshop Session"
 author:
   - Benedict Anderer
@@ -34,7 +34,7 @@ options(htmltools.dir.version = FALSE)
 --
 <br>
 
-3. Introducing Stringi & Friends
+3. Introducing `stringi` & Friends
 --
 <br>
 
@@ -42,7 +42,7 @@ options(htmltools.dir.version = FALSE)
 --
 <br>
 
-5. Match Made in Heaven: Stringi & Regex
+5. Match Made in Heaven: `stringi` & Regex
 --
 <br>
 
