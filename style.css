@@ -8,7 +8,7 @@
 .logo-left {
   position: absolute;
   top: 500px; /* Same top value to align both logos horizontally */
-  right: 25px; /* Adjust this to move the second logo */
+  right: 500px; /* Adjust this to move the second logo */
   width: 8.5%; /* Adjust the size of the second logo */
 }
 
