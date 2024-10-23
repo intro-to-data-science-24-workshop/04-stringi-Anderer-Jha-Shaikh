@@ -10,6 +10,7 @@ The session provides an overview of the key functions offered by the package `st
 - Introduce `stringi`, its key functions and potential use cases
 - Build a solid foundation in practical application of advanced string processing in a subject such as political science  
 
+The contents can be accessed here: 
 - [Slides](https://github.com/intro-to-data-science-24-workshop/04-stringi-Anderer-Jha-Shaikh/blob/main/presentation_script.html)
 - [Workshop Exercises](https://github.com/intro-to-data-science-24-workshop/04-stringi-Anderer-Jha-Shaikh/blob/main/exercise_questions.Rmd)
 - [Further Resources](https://github.com/intro-to-data-science-24-workshop/04-stringi-Anderer-Jha-Shaikh/tree/main/Supplementary%20Material)
