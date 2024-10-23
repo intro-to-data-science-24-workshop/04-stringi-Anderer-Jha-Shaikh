@@ -1,0 +1,207 @@
+---
+Title: "stringi: Fast and Portable Character String Processing Facilities"
+author: "Benedict Anderer,Farhan Shaikh , Saurav Jha"
+date: "`r format(Sys.time(), '%B %d, %Y | %H:%M:%S | %Z')`"
+output:
+  html_document:
+    code_folding: show
+    df_print: paged
+    highlight: tango
+    number_sections: no
+    theme: cosmo
+    toc: no
+---
+
+<style>
+div.answer {background-color:#f3f0ff; border-radius: 5px; padding: 20px;} 
+div.comment {background-color:#F0F6FF; border-radius: 5px; padding: 20px;}
+</style> 
+
+```{r, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE,
+                      eval = TRUE,
+                      error = FALSE,
+                      message = FALSE,
+                      warning = FALSE,
+                      comment = NA)
+``` 
+
+
+```{r}
+# Load required libraries
+library(rvest)
+library(dplyr)
+library(stringi) 
+``` 
+
+
+```{r} 
+
+# URL of the Wikipedia page
+url <- "https://en.wikipedia.org/wiki/List_of_political_slogans"
+
+# Read the HTML content of the page
+
+webpage <- read_html(url)  
+
+xpath_expression <- "//div[contains(@class, 'mw-heading mw-heading3') or contains(@class, 'mw-heading mw-heading4')]/following-sibling::ul[1]/li"
+
+slogan_text <- webpage %>%
+  html_nodes(xpath = xpath_expression) %>%
+  html_text(trim = TRUE) # Trim whitespace  
+
+# print(slogan_text)  
+
+# Convert non-ASCII characters in slogan_text to their closest ASCII 
+
+slogan_text <- stri_trans_general(slogan_text, "Latin-ASCII")
+
+
+# Clean the beginning of the slogans before sorting it alphabetically 
+
+clean_start <- function(slogans) {
+  # Replace all non-alphanumeric characters at the beginning with an empty string
+  cleaned <- stri_replace_first_regex(slogans, "^\\W+", "")
+  return(cleaned)
+}
+
+slogan_text <- clean_start(slogan_text)
+
+# Sort the slogans alphabetically  
+
+sorted_slogans <- stri_sort(slogan_text) 
+
+head(sorted_slogans)
+
+# transliterated_slogans <- stri_trans_general(slogan_text, "Latin-ASCII")
+
+```  
+
+
+```{r}   
+
+# Join all the slogans in one string    
+
+concatenated_slogans <- stri_join(slogan_text, collapse = " | ")
+
+# print(concatenated_slogans)
+
+```  
+
+
+```{r}  
+
+# Padding:- To maintain certain format so that all the strings have same width 
+# It helps in ensuring that all rows align neatly, especially when the length of the text in each row varies
+# Can be used when data is required to have fixed length 
+ 
+padded_slogans <- stri_pad(slogan_text, width =150, side = "right", pad = " ")
+head(padded_slogans)  
+```   
+
+
+
+```{r}  
+# Changing the case  
+uppercase_slogans <- stri_trans_toupper(slogan_text)
+head(uppercase_slogans)
+
+```   
+
+```{r}  
+
+# Count number of times any word exist   
+
+total_power_count <- sum(stri_count_regex(slogan_text, "\\bpower\\b", case_insensitive = TRUE))
+print(total_power_count) 
+
+```   
+
+
+```{r}  
+# Extract the slogan with some specific word  
+
+exist_power <- stri_detect_regex(slogan_text, "\\bpower\\b", case_insensitive = TRUE) 
+slogans_with_power <- slogan_text[exist_power] 
+print(slogans_with_power)
+
+```   
+
+```{r}   
+
+# Extract slogans specific words (Power or People )
+
+exist_power_people <- stri_detect_regex(slogan_text, "\\b(power|people)\\b", case_insensitive = TRUE)
+slogans_with_power_people <- slogan_text[exist_power_people] 
+print(slogans_with_power_people)
+
+```  
+
+```{r}  
+
+# Extract slogans specific words (Power and People ) 
+both_power_people<- stri_detect_regex(slogan_text, "(?=.*\\bpower\\b)(?=.*\\bpeople\\b)", case_insensitive = TRUE) 
+# Extract slogans that contain both "power" and "people"
+slogans_with_both <- slogan_text[both_power_people]
+print(slogans_with_both)  
+
+```  
+
+```{r}   
+# Looking behind and looking ahead 
+
+# Look-behind: This checks if any word is preceded by a specific phrase   
+
+look_behind_power <- slogan_text[stri_detect_regex(slogan_text, "(?<=Black )power")] 
+print(look_behind_power)
+
+```   
+
+```{r}   
+
+# Look-ahead: Checks if word if followed by a specific phrase  
+
+look_ahead_power_people <- slogan_text[stri_detect_regex(slogan_text, "Power(?= to the people)")]
+print(look_ahead_power_people)
+
+# Look ahead of power anywhere in the slogan 
+
+look_ahead_power <- slogan_text[stri_detect_regex(slogan_text, "Power.*?people")]
+print(look_ahead_power)
+``` 
+
+```{r}   
+# String trimming 
+trimmed_slogans <- stri_replace_all_regex(slogan_text, ".*? - ", "", opts_regex = stri_opts_regex(case_insensitive = TRUE))
+head(trimmed_slogans)
+```   
+
+
+```{r}   
+
+# Extract only slogans  
+
+only_slogans <- stri_replace_all_regex(slogan_text, " -.*", "", opts_regex = stri_opts_regex(case_insensitive = TRUE))
+head(only_slogans)
+
+```   
+
+```{r}   
+# Split slogans into two columns
+slogans_split <- stri_split_fixed(slogan_text, " - ", 2)
+
+# Convert list to data frame
+slogan_df <- data.frame(
+  Slogan = sapply(slogans_split, `[`, 1),
+  Description = sapply(slogans_split, `[`, 2),
+  stringsAsFactors = FALSE
+)
+
+slogan_df$Description <- stri_trans_general(slogan_df$Description, "Any-Lower; Title")
+slogan_df$Slogan <- stri_trans_general(slogan_df$Slogan, "Any-Lower; Title")
+
+# Print the resulting data frame 
+
+head(slogan_df)
+
+```   

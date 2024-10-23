@@ -1,0 +1,58 @@
+---
+Title: "stringi: Fast and Portable Character String Processing Facilities"
+author: "Write your name"
+date: "`r format(Sys.time(), '%B %d, %Y | %H:%M:%S | %Z')`"
+output:
+  html_document:
+    code_folding: show
+    df_print: paged
+    highlight: tango
+    number_sections: no
+    theme: cosmo
+    toc: no
+--- 
+
+<style>
+div.answer {background-color:#f3f0ff; border-radius: 5px; padding: 20px;} 
+div.comment {background-color:#F0F6FF; border-radius: 5px; padding: 20px;}
+</style> 
+
+```{r, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE,
+                      eval = TRUE,
+                      error = FALSE,
+                      message = FALSE,
+                      warning = FALSE,
+                      comment = NA)
+``` 
+
+Text manipulation using stringi 
+
+(a) Fetch the list of political slogans from this page ("https://en.wikipedia.org/wiki/List_of_political_slogans"). Use following (xpath_expression <- "//div[contains(@class, 'mw-heading mw-heading3') or contains(@class, 'mw-heading mw-heading4')]/following-sibling::ul[1]/li")  
+
+Use stringi for the following tasks
+
+(b) Sort the fetched data alphabetically 
+
+(c) Apply the padding operation to ensure that all the strings have same width and store them in a variable 
+
+(d) Change the case of the slogans 
+
+(e) Count number of times the word power appears in these slogans 
+
+(d) Extract and  slogans with following words- Power, Power and People, Power or People 
+
+(e) Find the slogans where a word is followed or preceded by specific phrase 
+
+(f) Create a datframe with two columns- Slogans and their Descriptions. Convert first Alphabets of both the variables in capital letter  
+
+```{r}
+
+
+``` 
+ 
+
+```{r}
+
+```
+
