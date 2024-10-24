@@ -23,7 +23,7 @@ The material in this repository is made available under the [MIT license](http:/
 
 [**Farhan Shaikh**](https://github.com/farhanshaikh199704) prepared part of the slides (Text as Data; String Processing in the Political Sciences; Match Made in Heaven: `stringi`& Regex) and contributed to the Github repository. 
 
-[**Saurav Jah**](https://github.com/Saurav1729-create) prepared the practice material as well as the solutions. 
+[**Saurav Jha**](https://github.com/Saurav1729-create) prepared the practice material as well as the solutions. 
 
 
 
