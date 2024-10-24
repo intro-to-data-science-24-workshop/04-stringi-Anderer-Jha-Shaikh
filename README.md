@@ -19,7 +19,7 @@ The contents can be accessed here:
 The material in this repository is made available under the [MIT license](http://opensource.org/licenses/mit-license.php). 
 
 ## Statement of Contributions
-[**Benedict Anderer**](https://github.com/benrodion) prepared part of the slides (Introducing `stringi`& Friends; Key Features & Use Cases; Further Resources) and passionately beatified the slide-deck with GIFS and images, made the recording and maintained the Github repository. 
+[**Benedict Anderer**](https://github.com/benrodion) prepared part of the slides (Introducing `stringi`& Friends; Key Features & Use Cases; Further Resources) and passionately beatified the slide-deck with GIFS and images, made the recording and maintained the Github repository. Unfortunately he was sick at the time of the recording and asks you to excuse his strained voice. 
 
 [**Farhan Shaikh**](https://github.com/farhanshaikh199704) prepared part of the slides (Text as Data; String Processing in the Political Sciences; Match Made in Heaven: `stringi`& Regex) and contributed to the Github repository. 
 
