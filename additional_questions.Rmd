@@ -53,6 +53,7 @@ if (exists("params") && !params$include_solutions) {
 
 ``` 
 
+
 #  `r emoji("tada")` WELCOME TO OUR WORKSHOP ! `r emoji("tada")`
    
 **Exercise 2**: In this exercise we will scrape Berlin's climate data from its wikipedia page and prepared it for analysis. We will explore how **stringi** can be creatively applied for **scraping and cleaning numeric data** by treating numbers as strings—a powerful trick in data pre-processing. 🧹
@@ -78,32 +79,11 @@ knitr::opts_chunk$set(echo = TRUE,
 
 ```{r}  
 
-url<- "https://en.wikipedia.org/wiki/Berlin"   
-page <- read_html(url)    
-all_tables <- page %>%
-  html_nodes("table") 
-
-# Extract text from each table
-# html_text() extracts only the textual content from the tables, removing all HTML tags and formatting.  
-
-text_tables <- sapply(all_tables, html_text)
-
-# Display the structure of the extracted text
-# This results in a plain text representation, making it easier to read but lacking the original table structure.   
-str(text_tables, nchar.max = 65, vec.len = 5, strict.width = "wrap")
-
 ```
 
 **Exercise 2.2 **: **Data Detection** Detect climate data table and separate from all tables using stringi. 
 
 ```{r}   
-# Using stringi's string_detect function 
-# Following line searches the text_tables vector for the presence of the phrase "climate data" (case-insensitive), returns the index of first occurence and assigns it to idx
-
-idx <- which(stri_detect_fixed(text_tables, "climate data",
-case_insensitive=TRUE, max_count=1))
-x <- as.data.frame(html_table(all_tables[[idx]], fill=TRUE))
-head(x) 
 
 ``` 
 
@@ -121,54 +101,8 @@ head(x)
  
 ```{r}   
 
-x <- as.matrix(x) 
-
-# converts (“−”) to ASCII equivalents using  transliterator. 
-x[, ] <- stri_trans_general(x, "Publishing-Any; Any-ASCII") 
-
-# Sets the row names to the values in the first column and the column names to the values in the first row. 
- 
-dimnames(x) <- list(x[, 1], x[1, ]) 
-
-# skip 1st/last row and 1st column 
-
-x <- x[2:(nrow(x) - 1), 2:ncol(x)]
-
-# Displays the first and last columns  
-x[, c(1, ncol(x))] 
-
-# remove the last row  
-x <- x[-nrow(x), ] 
-
-# Remove commas used as thousand separators
-
-x[,] <- stri_replace_all_regex(x, ",", "")
-
-# Extract numeric values, removing anything in parentheses including "(°F)" and "(inches)" 
-
-x[,] <- stri_replace_all_regex(x, "\\s*\\(.*?\\)|\\s*°F|\\s*inches", "")
-
-# Remove "(°F)" and "(inches)" from the dimension names if they exist
-
-dimnames(x)[[1]] <- stri_replace_all_regex(dimnames(x)[[1]], "\\s*\\(°F\\)|\\s*\\(inches\\)", "")
-
-# Convert the cleaned strings to numeric
-
-x <- apply(x, c(1, 2), function(val) as.numeric(val))
-
-# Remove the last row
-
-x <- x[-nrow(x), ]  
-head(x)
-
 ```
 
 
-```{r}  
 
-# Now we can start computation, for example calculation of monthly temperature ranges    
-
-x["Record high °C", -ncol(x)] - x["Record low °C", -ncol(x)] 
-
-```
 
