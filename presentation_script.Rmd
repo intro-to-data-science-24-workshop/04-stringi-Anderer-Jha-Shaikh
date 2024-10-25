@@ -4,7 +4,7 @@ subtitle: "Live Workshop Session"
 author:
   - Benedict Anderer
   - Farhan Shaikh 
-  - Saurav Jah
+  - Saurav Jha
 institute: "**Hertie School of Governance, Berlin**"
 date: "2024/10/28 (updated: `r Sys.Date()`)"
 output:
@@ -183,11 +183,12 @@ use `stri_datetime_parse`to homogenize temporal data.
 use `stri_trans_general` to transliterate characters from one script to another script of your choosing.
 <br>
 *Example*: You might be working with data  from a foreign local and the special characters are not displaying well. You can use `stri_trans_general` to convert them to Latin-ASCII. 
-```{r}
+
+````{r}
 library("stringi")
 stri_trans_general("Dämliche Düsen lärmen prächtig", "latin-ascii")
 ````
-]
+
 
 ---
 #Key Features & Use Cases continued

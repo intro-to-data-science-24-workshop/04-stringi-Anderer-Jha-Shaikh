@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta name="author" content="Benedict Anderer" />
     <meta name="author" content="Farhan Shaikh" />
-    <meta name="author" content="Saurav Jah" />
+    <meta name="author" content="Saurav Jha" />
     <script src="libs/header-attrs/header-attrs.js"></script>
     <link href="libs/remark-css/default.css" rel="stylesheet" />
     <link href="libs/remark-css/metropolis.css" rel="stylesheet" />
@@ -29,13 +29,13 @@ class: center, middle, inverse, title-slide
 ### Farhan Shaikh
 ]
 .author[
-### Saurav Jah
+### Saurav Jha
 ]
 .institute[
 ### <strong>Hertie School of Governance, Berlin</strong>
 ]
 .date[
-### 2024/10/28 (updated: 2024-10-23)
+### 2024/10/28 (updated: 2024-10-25)
 ]
 
 ---
@@ -96,7 +96,7 @@ class: center, middle, inverse, title-slide
 - Example of text data in R:
 --
 
-```r
+``` r
 text_as_vector&lt;- c("NLP is a subfield of artificial intelligence", "Text data is crucial for analysis.")
 text_with_special_characters&lt;-"Check out #RStats and #DataScience! Ämäzîng!"
 text_with_uneven_spaces&lt;-"All code chunk   outputs  presented in this paper   were  obtained in   R 4.1.2." 
@@ -202,7 +202,8 @@ use `stri_trans_general` to transliterate characters from one script to another 
 &lt;br&gt;
 *Example*: You might be working with data  from a foreign local and the special characters are not displaying well. You can use `stri_trans_general` to convert them to Latin-ASCII. 
 
-```r
+
+``` r
 library("stringi")
 stri_trans_general("Dämliche Düsen lärmen prächtig", "latin-ascii")
 ```
@@ -210,7 +211,7 @@ stri_trans_general("Dämliche Düsen lärmen prächtig", "latin-ascii")
 ```
 ## [1] "Damliche Dusen larmen prachtig"
 ```
-]
+
 
 ---
 #Key Features &amp; Use Cases continued

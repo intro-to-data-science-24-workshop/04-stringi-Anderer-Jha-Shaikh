@@ -1,21 +1,63 @@
 ---
-Title: "stringi: Fast and Portable Character String Processing Facilities"
-author: "Write your name"
-date: "`r format(Sys.time(), '%B %d, %Y | %H:%M:%S | %Z')`"
+title: "String processing in R"
+subtitle: "The package **stringi**"
+author: "Benedict Anderer, Farhan Shaikh, and Saurav Jha"
+institute: "Hertie School of Governance"
+date: "`r Sys.Date()`"
+params:
+  include_solutions: TRUE
 output:
   html_document:
-    code_folding: show
-    df_print: paged
+    toc: true
+    number_sections: false
     highlight: tango
-    number_sections: no
-    theme: cosmo
-    toc: no
+    theme: lumen
+    toc_depth: 3
+    toc_float: true
+    css: custom.css
+    self_contained: false
+---
+
+
+```{r setup, include = FALSE} 
+
+library(tidyverse)
+library(glue)
+library(here)
+library(rvest)
+library(stringi)
+library(emoji) 
+library(dplyr) 
+
+# Check if 'params' object exists
+if (exists("params") && !params$include_solutions) {
+  knitr::opts_chunk$set(include = FALSE)
+}
+
+```
+
+#  `r emoji("tada")` WELCOME TO OUR WORKSHOP ! `r emoji("tada")`
+   
+### Workshop Overview 📝
+
+**Exercise 1**: Dive into **stringi** for hands-on experience in string data cleaning and manipulation! In this exercise, we will explore several core functions of **stringi** that simplify text processing and extraction. Specifically, we will focus on the following features:
+
+- **Normalization** ✍️: Standardizing text for consistency.
+- **Sorting** 📊: Organizing strings in a specified order.
+- **Joining** 🔗: Concatenating multiple strings seamlessly.
+- **Formatting** 🎨: Adjusting string representation to meet specific needs.
+- **Counting** 🔢: Determining the frequency of elements within strings.
+- **Pattern Searching** 🔍: Finding specific sequences within the text.
+- **Locating and Extracting Patterns** 📌: Identifying and retrieving desired segments of text.
+- **Splitting** ✂️: Breaking down strings into manageable components.
+
+**Exercise 2**: An interesting exercise where we have scraped Berlin's climate data from its wikipedia page and prepared it for analysis. In this exercise , you’ll see how **stringi** can be creatively applied for **scraping and cleaning numeric data** by treating numbers as strings—a powerful trick in data pre-processing. 🧹 Exercise 2 exist on the Github repository as additional exercise. 
+
+This workshop will show you the versatility and power of **stringi**. 💡
 --- 
 
-<style>
-div.answer {background-color:#f3f0ff; border-radius: 5px; padding: 20px;} 
-div.comment {background-color:#F0F6FF; border-radius: 5px; padding: 20px;}
-</style> 
+### Let’s Begin! 🚀
+
 
 ```{r, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE,
@@ -26,33 +68,98 @@ knitr::opts_chunk$set(echo = TRUE,
                       comment = NA)
 ``` 
 
-Text manipulation using stringi 
+### Exercise 1 
 
-(a) Fetch the list of political slogans from this page ("https://en.wikipedia.org/wiki/List_of_political_slogans"). Use following (xpath_expression <- "//div[contains(@class, 'mw-heading mw-heading3') or contains(@class, 'mw-heading mw-heading4')]/following-sibling::ul[1]/li")  
 
-Use stringi for the following tasks
+**Exercise 1.1 **: Scrape political slogans on this wikipedia page (https://en.wikipedia.org/wiki/List_of_political_slogans) along with their descriptions. 
 
-(b) Sort the fetched data alphabetically 
+```{r}  
 
-(c) Apply the padding operation to ensure that all the strings have same width and store them in a variable 
+```  
 
-(d) Change the case of the slogans 
+**Exercise 1.2 **:**Transliteration**- Convert non-ASCII characters in the slogan to their closest ASCII 
 
-(e) Count number of times the word power appears in these slogans 
+```{r}    
 
-(d) Extract and  slogans with following words- Power, Power and People, Power or People 
+```   
 
-(e) Find the slogans where a word is followed or preceded by specific phrase 
+**Exercise 1.3 **: **Sorting**- Sort these slogans alphabetically 
 
-(f) Create a datframe with two columns- Slogans and their Descriptions. Convert first Alphabets of both the variables in capital letter  
+```{r}  
 
-```{r}
+```     
 
+**Exercise 1.4 **:**Joining or Concatenation**- Create a variable concatenated_slogans of single character string with each elements separated by "|" 
+
+```{r}   
+
+```  
+
+**Exercise 1.5 **:**Padding/Formatting**- Create a variable padded_slogans to right pad each slogans with spaces so that they all have width of 150 characters. 
+
+```{r}   
+
+
+```   
+
+**Exercise 1.6 **:**Case Change**-Change the case of all the slogans to uppercase 
+
+```{r}  
+
+```   
+
+**Exercise 1.7 **:**String Counting**- Count the number of times the word "power" exist in these slogans, ignore the case.
+
+```{r}  
+
+```   
+
+**Exercise 1.8 **:**String detection**- Extract the slogans that has the word "Power" in it. 
+
+```{r}   
+
+```   
+
+**Exercise 1.8 **: **Pattern Searching**- Extract and print the slogans that has the word "Power" or "People" in it. 
+
+```{r}    
+
+```  
+
+
+**Exercise 1.8 **:**String Detection with Pattern**- Extract and print the slogans that has both the word "Power" and "People" in it.  
+
+```{r}  
+
+```  
+
+**Exercise 1.8 **: **Looking behind**- Look for the slogans where word "Black" precedes the word "Power" 
+
+```{r}   
+
+
+```   
+
+**Exercise 1.9 **: **Looking ahead**-Find the slogans in which the word "to the people" appears after power. 
+
+```{r}    
 
 ``` 
- 
 
-```{r}
 
-```
+**Exercise 1.10 **: **String trimming**-Trim any specific (either slogan or their description) part of the slogan. 
 
+```{r}   
+
+```   
+
+
+```{r}   
+
+```   
+
+**Exercise 1.11 **:**String split**- Create a dataframe with two columns- slogans and their description in it 
+
+```{r}   
+
+```   
