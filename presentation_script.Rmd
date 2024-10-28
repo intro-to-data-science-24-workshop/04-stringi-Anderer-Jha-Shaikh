@@ -4,7 +4,7 @@ subtitle: "Live Workshop Session"
 author:
   - Benedict Anderer
   - Farhan Shaikh 
-  - Saurav Jha
+  - Saurav Jah
 institute: "**Hertie School of Governance, Berlin**"
 date: "2024/10/28 (updated: `r Sys.Date()`)"
 output:
@@ -51,6 +51,26 @@ options(htmltools.dir.version = FALSE)
 
 ---
 #Text as Data in R
+Example of text data in R:
+--
+```{r}
+text_as_vector<- c("NLP is a subfield of artificial intelligence", "Text data is crucial for analysis.")
+text_with_special_characters<-"Check out #RStats and #DataScience! Ämäzîng!"
+text_with_uneven_spaces<-"All code chunk   outputs  presented in this paper   were  obtained in   R 4.1.2." 
+
+```
+
+###Common Elements of Textual Data Analysis:
+
+- Data cleaning and preprocessing
+
+- Pattern matching
+
+- Multilingual text handling
+
+---
+
+#Text as Data in R
 ##Significance of text data in the context of Data Science
 
 .pull-left[
@@ -72,25 +92,6 @@ options(htmltools.dir.version = FALSE)
 <div class="logo-left">
   <img src="images/stringr.png" alt="Stringr Logo" />
 </div>
-
----
-
-- Example of text data in R:
---
-```{r}
-text_as_vector<- c("NLP is a subfield of artificial intelligence", "Text data is crucial for analysis.")
-text_with_special_characters<-"Check out #RStats and #DataScience! Ämäzîng!"
-text_with_uneven_spaces<-"All code chunk   outputs  presented in this paper   were  obtained in   R 4.1.2." 
-
-```
-
-###Common Elements of Textual Data Analysis:
-
-- Data cleaning and preprocessing
-
-- Pattern matching
-
-- Multilingual text handling
 
 ---
 
@@ -150,17 +151,22 @@ A growing body of research in comparative politics make use of text mining and r
   <img src="images/stringi.png" alt="Stringi Logo" />
 </div>
 
-- `stringi` supports [Unicode](https://home.unicode.org) ➡️ can process text & date data in different locales which is important for working data with from different countries. E.g.:
+- `stringi` supports [Unicode](https://home.unicode.org) ➡️ can process text & date data in different locales which is important for working data with from different countries. **Examples**:
+--
+  ```{r}
+x <- "28 października 2024 r., godz. 17:10:00"
+stringi::stri_datetime_parse(x, "dd MMMM yyyy 'r., godz.' HH:mm:ss",locale="pl_PL", tz="Europe/Warsaw")
+```
+
+```{r}
+stringi::stri_trans_general("Droga Użytkowniczko, Drogi Użytkowniku, jeśli wyrazisz zgodę klikając", "latin-ascii")
+```
 --
 
-  - "ä" is interpreted as "ae"
-  - Japanese date notation can be parsed in German R 
+- the most versatile string-processing package:
 --
-
-- the most versatile string-processing package
---
-
-  - if you are struggling to achieve your goals with `base`or `stringr`, take a look at `stringi`resources (e.g. [this](https://www.rdocumentation.org/packages/stringi/versions/1.8.4) or [this](https://stringi.gagolewski.com/index.html)) 
+ if you are struggling to achieve your goals with `base`or `stringr`, <br>
+ take a look at `stringi`resources (e.g. [this](https://www.rdocumentation.org/packages/stringi/versions/1.8.4) or [this](https://stringi.gagolewski.com/index.html)) 
 
 ---
 #Key Features & Use Cases 
@@ -183,12 +189,11 @@ use `stri_datetime_parse`to homogenize temporal data.
 use `stri_trans_general` to transliterate characters from one script to another script of your choosing.
 <br>
 *Example*: You might be working with data  from a foreign local and the special characters are not displaying well. You can use `stri_trans_general` to convert them to Latin-ASCII. 
-
-````{r}
+```{r}
 library("stringi")
 stri_trans_general("Dämliche Düsen lärmen prächtig", "latin-ascii")
 ````
-
+]
 
 ---
 #Key Features & Use Cases continued
@@ -196,7 +201,7 @@ stri_trans_general("Dämliche Düsen lärmen prächtig", "latin-ascii")
 <img src ="images/split.jpg" width="20%" />
 <br>
 **3. Text Boundary Analysis:**<br>
-To split text into lines/words/characters, count characters or locate particular text units (e.g. the 4th word of a sentence), use commands like `stri_count_boundares`, `stri_split_boundaries` or `stri_locate_boundaries`. 
+To split text into lines/words/characters, count characters or locate particular text units (e.g. the 4th word of a sentence), use commands like `stri_count_boundaries`, `stri_split_boundaries` or `stri_locate_boundaries`. 
 <br>
 *Example*: To prepare text data for a bag of words analysis ➡️ use `stri_split_boundaries`to split the text into words.
 ]

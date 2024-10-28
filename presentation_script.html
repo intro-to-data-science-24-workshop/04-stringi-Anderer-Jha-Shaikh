@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta name="author" content="Benedict Anderer" />
     <meta name="author" content="Farhan Shaikh" />
-    <meta name="author" content="Saurav Jha" />
+    <meta name="author" content="Saurav Jah" />
     <script src="libs/header-attrs/header-attrs.js"></script>
     <link href="libs/remark-css/default.css" rel="stylesheet" />
     <link href="libs/remark-css/metropolis.css" rel="stylesheet" />
@@ -29,13 +29,13 @@ class: center, middle, inverse, title-slide
 ### Farhan Shaikh
 ]
 .author[
-### Saurav Jha
+### Saurav Jah
 ]
 .institute[
 ### <strong>Hertie School of Governance, Berlin</strong>
 ]
 .date[
-### 2024/10/28 (updated: 2024-10-25)
+### 2024/10/28 (updated: 2024-10-28)
 ]
 
 ---
@@ -69,6 +69,26 @@ class: center, middle, inverse, title-slide
 
 ---
 #Text as Data in R
+Example of text data in R:
+--
+
+```r
+text_as_vector&lt;- c("NLP is a subfield of artificial intelligence", "Text data is crucial for analysis.")
+text_with_special_characters&lt;-"Check out #RStats and #DataScience! Ämäzîng!"
+text_with_uneven_spaces&lt;-"All code chunk   outputs  presented in this paper   were  obtained in   R 4.1.2." 
+```
+
+###Common Elements of Textual Data Analysis:
+
+- Data cleaning and preprocessing
+
+- Pattern matching
+
+- Multilingual text handling
+
+---
+
+#Text as Data in R
 ##Significance of text data in the context of Data Science
 
 .pull-left[
@@ -90,25 +110,6 @@ class: center, middle, inverse, title-slide
 &lt;div class="logo-left"&gt;
   &lt;img src="images/stringr.png" alt="Stringr Logo" /&gt;
 &lt;/div&gt;
-
----
-
-- Example of text data in R:
---
-
-``` r
-text_as_vector&lt;- c("NLP is a subfield of artificial intelligence", "Text data is crucial for analysis.")
-text_with_special_characters&lt;-"Check out #RStats and #DataScience! Ämäzîng!"
-text_with_uneven_spaces&lt;-"All code chunk   outputs  presented in this paper   were  obtained in   R 4.1.2." 
-```
-
-###Common Elements of Textual Data Analysis:
-
-- Data cleaning and preprocessing
-
-- Pattern matching
-
-- Multilingual text handling
 
 ---
 
@@ -168,17 +169,32 @@ A growing body of research in comparative politics make use of text mining and r
   &lt;img src="images/stringi.png" alt="Stringi Logo" /&gt;
 &lt;/div&gt;
 
-- `stringi` supports [Unicode](https://home.unicode.org) ➡️ can process text &amp; date data in different locales which is important for working data with from different countries. E.g.:
+- `stringi` supports [Unicode](https://home.unicode.org) ➡️ can process text &amp; date data in different locales which is important for working data with from different countries. **Examples**:
+--
+  
+  ```r
+  x &lt;- "28 października 2024 r., godz. 17:10:00"
+  stringi::stri_datetime_parse(x, "dd MMMM yyyy 'r., godz.' HH:mm:ss",locale="pl_PL", tz="Europe/Warsaw")
+  ```
+  
+  ```
+  ## [1] "2024-10-28 17:10:00 CET"
+  ```
+
+
+```r
+stringi::stri_trans_general("Droga Użytkowniczko, Drogi Użytkowniku, jeśli wyrazisz zgodę klikając", "latin-ascii")
+```
+
+```
+## [1] "Droga Uzytkowniczko, Drogi Uzytkowniku, jesli wyrazisz zgode klikajac"
+```
 --
 
-  - "ä" is interpreted as "ae"
-  - Japanese date notation can be parsed in German R 
+- the most versatile string-processing package:
 --
-
-- the most versatile string-processing package
---
-
-  - if you are struggling to achieve your goals with `base`or `stringr`, take a look at `stringi`resources (e.g. [this](https://www.rdocumentation.org/packages/stringi/versions/1.8.4) or [this](https://stringi.gagolewski.com/index.html)) 
+ if you are struggling to achieve your goals with `base`or `stringr`, &lt;br&gt;
+ take a look at `stringi`resources (e.g. [this](https://www.rdocumentation.org/packages/stringi/versions/1.8.4) or [this](https://stringi.gagolewski.com/index.html)) 
 
 ---
 #Key Features &amp; Use Cases 
@@ -202,8 +218,7 @@ use `stri_trans_general` to transliterate characters from one script to another 
 &lt;br&gt;
 *Example*: You might be working with data  from a foreign local and the special characters are not displaying well. You can use `stri_trans_general` to convert them to Latin-ASCII. 
 
-
-``` r
+```r
 library("stringi")
 stri_trans_general("Dämliche Düsen lärmen prächtig", "latin-ascii")
 ```
@@ -211,7 +226,7 @@ stri_trans_general("Dämliche Düsen lärmen prächtig", "latin-ascii")
 ```
 ## [1] "Damliche Dusen larmen prachtig"
 ```
-
+]
 
 ---
 #Key Features &amp; Use Cases continued
